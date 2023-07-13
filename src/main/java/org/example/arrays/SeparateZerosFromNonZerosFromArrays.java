@@ -23,6 +23,6 @@ public class SeparateZerosFromNonZerosFromArrays {
                 arr2[i]=arr[i];
             }
         }
-        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr2));
     }
 }
