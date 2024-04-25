@@ -12,11 +12,15 @@ public class RemoveDuplicatesInArray {
 
         int[] arr = { 5, 2, 6, 8, 6, 7, 5, 2, 8, 3 };
 
+        System.out.println("---------------------");
         usingJava8(arr);
+        System.out.println("---------------------");
         removeDuplicatesInIntegerArrayUsingSortMethod(arr);
-
+        System.out.println("---------------------");
        usingHashMap(arr);
+        System.out.println("---------------------");
         usingLinkedHashSet(arr);
+        System.out.println("---------------------");
        // removeDuplicatesInIntegerArray(arr);
 
        // removeDuplicatesInIntegerArrayUsingSortMethod(arr);
@@ -36,7 +40,6 @@ public class RemoveDuplicatesInArray {
         Map<Integer,Boolean> map = new HashMap<>();
 
         for (int i=0; i<n; i++){
-
             if(map.get(arr[i])==null){
                 System.out.print(arr[i] + " ");
                 map.put(arr[i],true);

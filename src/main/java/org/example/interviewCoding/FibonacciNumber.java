@@ -1,21 +1,23 @@
 package org.example.interviewCoding;
 
+import java.util.Arrays;
+
 public class FibonacciNumber {
 
     public static void main(String[] args) {
 
         int count = 10;
-        String fibNum = fibonacciNum(count);
-        System.out.println("Fibonacci Num :: "+ fibNum);
+        String fibNum = fibonacciUsingStringBuilder(count);
+        System.out.println("Fibonacci Num Using String Builder:: "+ fibNum);
         System.out.println("----------------------- ");
-        String fibRecursive = fibonacciWithRecursive(count);
-        System.out.println("Fibonacci Recursive Num :: "+ fibRecursive);
-
+        fibbinocciUsingForLoopReturnIntegerArr(count);
+        System.out.println("----------------------- ");
+        fibonacciWithRecursive(count);
     }
 
 
 
-    public static String fibonacciNum(int count){
+    public static String fibonacciUsingStringBuilder(int count){
         int a = 0;
         int b = 1;
         int c = 1;
@@ -33,20 +35,42 @@ public class FibonacciNumber {
         return str.toString();
     }
 
-
-    public static String fibonacciWithRecursive(int count){
-
-        StringBuilder str = new StringBuilder();
-
-        for (int i =0; i<count;i++){
-            str.append(recursive(count)).append(", ");
+    public static void fibbinocciUsingForLoopReturnIntegerArr(int count){
+        int a = 0;
+        int b = 1;
+        int c = 1;
+        int farr[] = new int[count];
+        for (int i=0 ; i<count; i++){
+            farr[i] = a;
+            a =b;
+            b=c;
+            c= a+b;
         }
-      return str.toString();
+        System.out.println("Using for loop return int arr[] :"+Arrays.toString(farr));
+
     }
-    public static int recursive(int count){
-        if (count <= 1)
-            return count;
-        return recursive(count - 1) + recursive(count - 2);
+
+
+    public static void fibonacciWithRecursive(int count){
+
+        int a=0, b=1;
+        int n=0;
+        int []arr = new int[count];
+        for (int i=0; i<count; i++){
+            arr[i] =fibonacci(count);
+        }
+         System.out.println("Using recursive : "+Arrays.toString(arr));
+
     }
+
+        public static int fibonacci(int n)  {
+            if(n == 0)
+                return 0;
+            else if(n == 1)
+                return 1;
+            else
+                return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+
 
 }
