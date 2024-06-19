@@ -16,6 +16,7 @@ public class ReverseStringInJava {
         usingForLoop();
         usingRecursion(str);
         usingStack(str);
+        usingJava8StringBuilder(str);
     }
 
     private static void usingForLoop(){
@@ -68,5 +69,13 @@ public class ReverseStringInJava {
         System.out.println("Using stack pop() "+ Arrays.toString(reverseString));
 
 
+    }
+
+
+    private static void usingJava8StringBuilder(String str){
+
+        String result = str.chars().mapToObj(x-> (char)x).collect(StringBuilder::new,StringBuilder::append,StringBuilder::append).reverse().toString();
+        System.out.println("-------------------");
+        System.out.println(" Using string builder and java8 :: "+result);
     }
 }

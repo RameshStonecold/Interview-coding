@@ -82,6 +82,5 @@ public class RemoveDigitsFromStringArray {
 
         Stream.of(strArr).filter(x->x.matches("\\D+")).collect(Collectors.toList()).forEach(System.out::println);
 
-
     }
 }

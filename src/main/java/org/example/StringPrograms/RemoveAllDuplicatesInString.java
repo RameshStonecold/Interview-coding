@@ -13,6 +13,8 @@ public class RemoveAllDuplicatesInString {
 
         String str = "Ramesh Shakapurapu";
         removeAllDuplicates(str);
+    System.out.println("------------");
+        usingJava8(str);
     }
 
     private static void removeAllDuplicates(String str){
@@ -37,4 +39,12 @@ public class RemoveAllDuplicatesInString {
 
 
     }
+
+
+    private static void usingJava8(String str){
+      String  result = str.chars().filter(x->!Character.isWhitespace(x)).distinct().collect(StringBuilder::new,StringBuilder::appendCodePoint,StringBuilder::append).toString();
+       System.out.println("Using java 8 "+result);
+
+    }
+
 }

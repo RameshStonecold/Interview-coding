@@ -1,6 +1,10 @@
 package org.example.StringPrograms;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class CountNoOfOccuranceInString {
 
@@ -9,7 +13,7 @@ public class CountNoOfOccuranceInString {
     public static void main(String[] args) {
 
 
-        String str = "112233abcabc";
+        String str = "112233abcabcx";
       //  HashMap<Character,Integer> usingHashmap =countOccuranceUsingHashmap("Using Hashmap :: "+str);
      //   System.out.println("Using hashmap :: "+usingHashmap);
        // System.out.println("------------------------");
@@ -22,6 +26,8 @@ public class CountNoOfOccuranceInString {
           repeatedOccurranceOfString(str);
         System.out.println("--------------1----------");
         usingHashMapAnotherway(str);
+        System.out.println("------------------------");
+        usingjav8HashmapinternalForLoop(str);
     }
 
 
@@ -107,6 +113,12 @@ public class CountNoOfOccuranceInString {
 
     }
 
+
+    private static void usingjav8HashmapinternalForLoop(String str){
+
+       Map<Character,Long> map = str.chars().mapToObj(x-> (char)x).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+     System.out.println("Without using external forloop java8 :"+ map);
+    }
 
 }
 
