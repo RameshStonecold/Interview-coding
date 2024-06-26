@@ -1,5 +1,10 @@
 package org.example.interviewCoding;
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class FindSmallestAndLargetNumberInArray {
 
     public static void main(String[] args) {
@@ -25,6 +30,12 @@ public class FindSmallestAndLargetNumberInArray {
         practicesAgain(arr);
         System.out.println("-----------");
         printSecondLargestNum(arr);
+
+        System.out.println("----------------------");
+        nthLargestNumberInArray(arr);
+
+        System.out.println("----------------------");
+
     }
 
 
@@ -68,4 +79,19 @@ public class FindSmallestAndLargetNumberInArray {
         }
 
     }
+
+
+    public static void nthLargestNumberInArray(int arr[]){
+        List<Integer> list = Arrays.stream(arr).boxed().toList();
+        int n =4;
+        int num =list.stream().sorted(Comparator.reverseOrder()).limit(n).skip(n-1).findFirst().get();
+
+        var lis =list.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+
+        System.out.println(lis);
+        System.out.println("The third largest number "+num);
+    }
+
+
+
 }
