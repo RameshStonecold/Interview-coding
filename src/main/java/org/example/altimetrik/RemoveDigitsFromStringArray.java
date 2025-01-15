@@ -83,4 +83,17 @@ public class RemoveDigitsFromStringArray {
         Stream.of(strArr).filter(x->x.matches("\\D+")).collect(Collectors.toList()).forEach(System.out::println);
 
     }
+
+
+    private static void convertStringsIntoIntegerArray(){
+        String[] arr = {"1", "3", "4", "2", "5", "11"};
+
+        int[] arry =Stream.of(arr).mapToInt(x-> Integer.valueOf(x)).toArray();
+
+        String str ="1342511";
+
+        Stream.of(str).mapToInt(x-> Integer.valueOf(x)).toArray();
+
+
+    }
 }

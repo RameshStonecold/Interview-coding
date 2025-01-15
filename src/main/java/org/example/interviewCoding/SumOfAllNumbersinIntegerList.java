@@ -25,4 +25,16 @@ public class SumOfAllNumbersinIntegerList {
         }
         System.out.println( "Sum using for loop ::"+sum);
     }
+    /*
+    *
+    *  Sum of even numbers using java 8
+    * */
+
+    private static int sumOfEvenNumbersUsing8(List<Integer>  integerList){
+        var sumOfEven = integerList.stream().filter(x-> x%2==0).map(num -> num*num).reduce(0, (x,y)-> x+y);
+
+        return sumOfEven;
+    }
+
+
 }

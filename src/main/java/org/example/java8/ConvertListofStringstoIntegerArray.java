@@ -21,7 +21,7 @@ public class ConvertListofStringstoIntegerArray {
        List<String> al = Stream.of(str).
                map(x-> new Scanner(x).findAll("\\d+").
                        map(m->m.group()).collect(Collectors.toList())).
-               flatMap(List::stream).collect(Collectors.toList());
+               flatMap(List::stream).toList();
 
         return al.stream().mapToInt(Integer::valueOf).toArray();
     }

@@ -15,7 +15,7 @@ public class RemoveRepeatedDigitsFromLongNum {
 
         System.out.println("Remove repeated digit from given 1221266884 :: "+ removeRecur(num));
 
-        System.out.println(removeRepeatedLongDigits(num));
+       // System.out.println(removeRepeatedLongDigits(num));
 
     }
 
@@ -32,6 +32,10 @@ public class RemoveRepeatedDigitsFromLongNum {
                 res +=curr_digit * pow ;
             prev_digit = curr_digit;
             pow *=10;
+            System.out.println("Previous digit "+prev_digit);
+            System.out.println("Current digit "+curr_digit);
+            System.out.println("res "+ res);
+            System.out.println("power "+pow);
             }
             n = n/ 10;
         }

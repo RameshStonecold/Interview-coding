@@ -2,6 +2,7 @@ package org.example.StringPrograms;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Stack;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -17,6 +18,7 @@ public class ReverseStringInJava {
         usingRecursion(str);
         usingStack(str);
         usingJava8StringBuilder(str);
+        reverseTheStringWithUsingInbuiltFuncion();
     }
 
     private static void usingForLoop(){
@@ -40,6 +42,12 @@ public class ReverseStringInJava {
         IntStream.range(0, charArray.length)
                 .mapToObj(i -> charArray[(charArray.length - 1) - i])
                 .forEach(System.out::print);
+
+        String str = "Ramesh";
+
+        String reverse = str.chars().mapToObj(i-> (str.length()-1)-i).collect(StringBuilder::new, StringBuilder::appendCodePoint,StringBuilder::append).toString();
+
+
 }
 
 
@@ -71,6 +79,21 @@ public class ReverseStringInJava {
 
     }
 
+    private static void reverseTheStringWithUsingInbuiltFuncion(){
+
+        String str2 = "Ramesh5hjy";
+        char chars[] = str2.toCharArray();
+
+        int left =0, right = str2.length()-1;
+        while (left<right){
+                char temp = chars[left];
+                chars[left] = chars[right];
+                chars[right] = temp;
+                left++;
+                right--;
+        }
+        System.out.println("Without using inbuilt function "+ Arrays.toString(chars));
+    }
 
     private static void usingJava8StringBuilder(String str){
 
